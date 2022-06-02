@@ -12,7 +12,7 @@ class Sensor(models.Model):
 
 
 class Measurement(models.Model):
-    sensor_id = models.ForeignKey('Measurement', on_delete=models.PROTECT, null=True)
+    sensor_id = models.ForeignKey('Sensor', related_name='measurements', on_delete=models.PROTECT, null=True)
     temperature = models.FloatField()
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
